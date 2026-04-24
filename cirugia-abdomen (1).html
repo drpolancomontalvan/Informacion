@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cirugía de Abdomen y Contorno Corporal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --teal-dark: #0a7c8c;
+      --teal-mid: #12a5ba;
+      --teal-light: #c8eef4;
+      --teal-pale: #e8f9fc;
+      --accent: #e74c6f;
+      --accent-light: #fde8ee;
+      --gold: #f0a500;
+      --text-dark: #0d2b33;
+      --text-mid: #2c6672;
+      --white: #ffffff;
+      --card-bg: #f0fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--teal-pale);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 60%, #4cc9d8 100%);
+      padding: 60px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E") repeat;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(6px);
+      animation: fadeDown 0.6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      color: var(--white);
+      line-height: 1.1;
+      animation: fadeDown 0.7s 0.1s ease both;
+    }
+    .hero h1 span { color: #a8f0f8; }
+    .hero-sub {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      margin-top: 16px;
+      font-weight: 300;
+      animation: fadeDown 0.7s 0.2s ease both;
+    }
+    .hero-divider {
+      width: 60px; height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 28px auto 0;
+      animation: fadeDown 0.7s 0.3s ease both;
+    }
+    .hero-wave {
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 50px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    /* ── ELIGIBILITY ── */
+    .eligibility {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px 36px;
+      margin-top: -30px;
+      box-shadow: 0 8px 40px rgba(10,124,140,0.12);
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-mid);
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 28px;
+    }
+    .elig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media(max-width: 580px){ .elig-grid { grid-template-columns: 1fr; } }
+    .elig-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 20px;
+      border-left: 4px solid var(--teal-mid);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .elig-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(10,124,140,0.12); }
+    .elig-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .elig-card h3 { font-size: 0.85rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 4px; }
+    .elig-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
+    .elig-card strong { color: var(--text-dark); }
+
+    /* ── SURGERIES ── */
+    .surgeries-section {
+      margin-top: 48px;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+    .surgery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    @media(max-width: 600px){ .surgery-grid { grid-template-columns: 1fr; } }
+    .surgery-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 24px rgba(10,124,140,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .surgery-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(10,124,140,0.16); }
+    .surgery-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal-dark), var(--teal-mid));
+    }
+    .surgery-card.fonasa::after {
+      background: linear-gradient(90deg, #1a7f3c, #27ae60);
+    }
+    .surgery-num {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+    .surgery-card.fonasa .surgery-num {
+      background: #d4f0e0;
+      color: #1a7f3c;
+    }
+    .surgery-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .surgery-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.6; }
+    .fonasa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #d4f0e0;
+      color: #1a7f3c;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CTA / WHATSAPP ── */
+    .cta-section {
+      margin-top: 52px;
+      background: linear-gradient(135deg, var(--teal-dark) 0%, #0f8fa1 100%);
+      border-radius: 24px;
+      padding: 44px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      top: -100px; right: -80px;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      bottom: -60px; left: -60px;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .cta-section p { color: rgba(255,255,255,0.75); font-size: 0.92rem; margin-bottom: 32px; }
+    .phones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      position: relative; z-index: 1;
+    }
+    .phone-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--teal-dark);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .phone-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+      background: #e8fffe;
+    }
+    .phone-btn svg { flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      color: var(--text-mid);
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">Especialidad Médica</div>
+  <h1>Cirugía de <span>Abdomen</span><br/>y Contorno Corporal</h1>
+  <p class="hero-sub">Procedimientos disponibles para hombres y mujeres · Bono PAD Fonasa disponible</p>
+  <div class="hero-divider"></div>
+  <svg class="hero-wave" viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,50 L0,50 Z" fill="#e8f9fc"/>
+  </svg>
+</header>
+
+<main>
+
+  <!-- ELIGIBILITY -->
+  <section class="eligibility">
+    <div class="section-label">Requisitos</div>
+    <h2 class="section-title">Para Abdomen en Delantal o Contorno Corporal</h2>
+    <div class="elig-grid">
+      <div class="elig-card">
+        <div class="elig-icon">⚧️</div>
+        <div>
+          <h3>Para todos</h3>
+          <p>Posible tanto para <strong>mujeres</strong> como para <strong>hombres</strong>, sin distinción de género.</p>
+        </div>
+      </div>
+      <div class="elig-card">
+        <div class="elig-icon">🎂</div>
+        <div>
+          <h3>Rango de edad</h3>
+          <p>Sin límite de edad con cuerpo sano. Pacientes <strong>desde 18 hasta +70 años</strong>.<br/>Bono PAD Fonasa hasta <strong>65 años</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURGERIES -->
+  <section class="surgeries-section">
+    <div class="section-label">Procedimientos</div>
+    <h2 class="section-title">Cirugías Disponibles</h2>
+    <div class="surgery-grid">
+
+      <div class="surgery-card">
+        <div class="surgery-num">1</div>
+        <h3>Abdominoplastia Completa</h3>
+        <p>Con <strong>lipoescultura cuerpo entero</strong> y cirugías adicionales: mamaria, muslos y brazos.</p>
+      </div>
+
+      <div class="surgery-card fonasa">
+        <div class="surgery-num">2</div>
+        <h3>Abdominoplastia Fonasa</h3>
+        <p>Procedimiento de abdominoplastia cubierto con el beneficio del sistema público.</p>
+        <div class="fonasa-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Bono PAD Fonasa
+        </div>
+      </div>
+
+      <div class="surgery-card">
+        <div class="surgery-num">3</div>
+        <h3>Abdominoplastia Sin Liposucción</h3>
+        <p>Intervención enfocada exclusivamente en la <strong>corrección del abdomen</strong>, sin liposucción complementaria.</p>
+      </div>
+
+      <div class="surgery-card">
+        <div class="surgery-num">4</div>
+        <h3>Lipoescultura</h3>
+        <p>Con o sin <strong>transferencia de grasa</strong>, para modelar y redefinir el contorno corporal.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA WHATSAPP -->
+  <section class="cta-section">
+    <h2>¿Tienes preguntas? Contáctanos</h2>
+    <p>Escríbenos por WhatsApp y un especialista te orientará sin compromiso</p>
+    <div class="phones">
+      <a class="phone-btn" href="https://wa.me/56948189883" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.862L0 24l6.305-1.517A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.368l-.359-.213-3.724.896.938-3.61-.234-.372A9.796 9.796 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        +56 9 4818 9883
+      </a>
+      <a class="phone-btn" href="https://wa.me/56955280169" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.862L0 24l6.305-1.517A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.368l-.359-.213-3.724.896.938-3.61-.234-.372A9.796 9.796 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        +56 9 5528 0169
+      </a>
+      <a class="phone-btn" href="https://wa.me/56971308081" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.862L0 24l6.305-1.517A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.003-1.368l-.359-.213-3.724.896.938-3.61-.234-.372A9.796 9.796 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        +56 9 7130 8081
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Toda la información presentada es de carácter informativo. Consulta siempre con un médico especialista.</p>
+</footer>
+
+</body>
+</html>
