@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Postoperatoria — Cirugía Plástica</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --purple-50: #EEEDFE;
+    --purple-100: #CECBF6;
+    --purple-400: #7F77DD;
+    --purple-600: #534AB7;
+    --purple-800: #3C3489;
+    --coral-50: #FAECE7;
+    --coral-100: #F5C4B3;
+    --coral-400: #D85A30;
+    --coral-600: #993C1D;
+    --coral-800: #712B13;
+    --amber-50: #FAEEDA;
+    --amber-400: #EF9F27;
+    --amber-600: #BA7517;
+    --amber-800: #633806;
+    --pink-50: #FBEAF0;
+    --pink-400: #D4537E;
+    --pink-600: #993556;
+    --pink-800: #72243E;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-400: #888780;
+    --gray-600: #5F5E5A;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: #F8F6F0;
+    color: #2C2C2A;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; font-size: 11px; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card, .food-card, .alert { border: 1px solid #ccc !important; }
+    section { break-inside: avoid; }
+  }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--teal-800);
+    border-radius: 0 0 32px 32px;
+    padding: 4rem 3rem 3rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: var(--teal-600);
+    opacity: 0.4;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--teal-400);
+    opacity: 0.2;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal-100);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--teal-100);
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--teal-100);
+    margin-top: 1rem;
+    max-width: 460px;
+  }
+  .hero-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .chip {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 11px;
+    color: var(--teal-50);
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 2.5rem 0 1.25rem;
+  }
+  .section-number {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--teal-100);
+    line-height: 1;
+    min-width: 32px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal-600);
+  }
+  .section-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--teal-100);
+    opacity: 0.5;
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 14px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: #fff;
+    border: 0.5px solid #D3D1C7;
+    border-radius: 14px;
+    padding: 1.25rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-top-teal { border-top: 3px solid var(--teal-400); }
+  .card-top-purple { border-top: 3px solid var(--purple-400); }
+  .card-top-coral { border-top: 3px solid var(--coral-400); }
+  .card-top-amber { border-top: 3px solid var(--amber-400); }
+  .card-top-pink { border-top: 3px solid var(--pink-400); }
+
+  .card-icon {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .bg-teal { background: var(--teal-50); }
+  .bg-purple { background: var(--purple-50); }
+  .bg-coral { background: var(--coral-50); }
+  .bg-amber { background: var(--amber-50); }
+  .bg-pink { background: var(--pink-50); }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+    color: #2C2C2A;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  /* ── PILL LIST ── */
+  .pill-list { display: flex; flex-direction: column; gap: 6px; }
+  .pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .dot-teal { background: var(--teal-400); }
+  .dot-purple { background: var(--purple-400); }
+  .dot-coral { background: var(--coral-400); }
+  .dot-amber { background: var(--amber-400); }
+  .dot-pink { background: var(--pink-400); }
+
+  /* ── TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; }
+  .tl-row { display: flex; gap: 16px; }
+  .tl-spine { display: flex; flex-direction: column; align-items: center; }
+  .tl-node {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--teal-400);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--teal-400);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tl-connector {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--teal-100), var(--teal-50));
+    min-height: 24px;
+  }
+  .tl-body { padding-bottom: 22px; flex: 1; }
+  .tl-phase {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 2px;
+  }
+  .tl-period {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: #2C2C2A;
+    margin-bottom: 4px;
+  }
+  .tl-desc { font-size: 12px; color: var(--gray-600); line-height: 1.6; }
+
+  /* ── FOOD TABLE ── */
+  .food-wrap {
+    background: #fff;
+    border: 0.5px solid #D3D1C7;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .food-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .food-header-cell {
+    padding: 0.9rem 1.4rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .food-header-ok { background: var(--teal-600); color: var(--teal-50); }
+  .food-header-no { background: var(--coral-600); color: var(--coral-50); }
+  .food-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .food-col { padding: 1.2rem 1.4rem; }
+  .food-col-ok { background: var(--teal-50); border-right: 1px solid var(--teal-100); }
+  .food-col-no { background: var(--coral-50); }
+  .food-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 3px 0;
+  }
+  .food-item-text-ok { color: var(--teal-800); }
+  .food-item-text-no { color: var(--coral-800); }
+
+  /* ── NUTRIENTS ── */
+  .nutrient-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+  .nutrient {
+    background: var(--teal-50);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    border-left: 3px solid var(--teal-400);
+  }
+  .nutrient-name { font-size: 12px; font-weight: 500; color: var(--teal-800); margin-bottom: 3px; }
+  .nutrient-desc { font-size: 11px; color: var(--teal-600); line-height: 1.5; }
+
+  /* ── ALERTS ── */
+  .alert {
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .alert-danger {
+    background: var(--coral-50);
+    border: 1px solid var(--coral-100);
+    border-left: 4px solid var(--coral-400);
+  }
+  .alert-success {
+    background: var(--teal-50);
+    border: 1px solid var(--teal-100);
+    border-left: 4px solid var(--teal-400);
+  }
+  .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .alert-title { font-size: 13px; font-weight: 500; margin-bottom: 5px; }
+  .alert-title-danger { color: var(--coral-800); }
+  .alert-title-success { color: var(--teal-800); }
+  .alert-body { font-size: 12px; line-height: 1.7; }
+  .alert-body-danger { color: var(--coral-600); }
+  .alert-body-success { color: var(--teal-600); }
+
+  /* ── ZONE CARDS ── */
+  .zone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* ── STATS ROW ── */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 2rem; }
+  .stat-box {
+    background: #fff;
+    border: 0.5px solid #D3D1C7;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--teal-600);
+    line-height: 1;
+  }
+  .stat-unit { font-size: 12px; color: var(--teal-400); }
+  .stat-label { font-size: 11px; color: var(--gray-400); margin-top: 4px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    background: var(--teal-900);
+    border-radius: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .footer-title { font-size: 12px; font-weight: 500; color: var(--teal-100); margin-bottom: 4px; }
+  .footer-text { font-size: 11px; color: var(--teal-400); line-height: 1.7; }
+
+  /* ── PRINT BUTTON ── */
+  .print-bar {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+  }
+  .btn-print {
+    background: var(--teal-800);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(8, 80, 65, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-print:hover { background: var(--teal-600); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .grid-2, .grid-3, .grid-4, .zone-grid, .stats-row, .nutrient-row { grid-template-columns: 1fr; }
+    .food-header, .food-body { grid-template-columns: 1fr; }
+    .hero-title { font-size: 36px; }
+    .hero { padding: 2.5rem 1.5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <button class="btn-print" onclick="window.print()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Imprimir / Guardar PDF
+  </button>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Cirugía Plástica Estética &amp; Reconstructiva</div>
+      <div class="hero-title">Guía <em>Postoperatoria</em></div>
+      <div class="hero-sub">Pautas de cuidado, alimentación y recuperación para garantizar los mejores resultados de su procedimiento.</div>
+      <div class="hero-chips">
+        <span class="chip">Cuidados generales</span>
+        <span class="chip">Cronograma de recuperación</span>
+        <span class="chip">Alimentación</span>
+        <span class="chip">Señales de alarma</span>
+        <span class="chip">Cuidados por zona</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">2 <span class="stat-unit">L</span></div>
+      <div class="stat-label">Agua diaria mínima</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">48 <span class="stat-unit">h</span></div>
+      <div class="stat-label">Reposo inicial recomendado</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">6 <span class="stat-unit">sem</span></div>
+      <div class="stat-label">Sin ejercicio intenso</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">12 <span class="stat-unit">m</span></div>
+      <div class="stat-label">Resultado definitivo</div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1: CUIDADOS GENERALES -->
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-label">Cuidados generales</div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:14px;">
+    <div class="card card-top-teal">
+      <div class="card-icon bg-teal">🛌</div>
+      <div class="card-title">Reposo y actividad física</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-teal"></span>Reposo absoluto las primeras 24 a 48 horas</div>
+        <div class="pill"><span class="dot dot-teal"></span>Evitar esfuerzos físicos por al menos 3 a 4 semanas</div>
+        <div class="pill"><span class="dot dot-teal"></span>Caminatas suaves desde el segundo día para activar la circulación</div>
+        <div class="pill"><span class="dot dot-teal"></span>No levantar objetos mayores a 2 kg en las primeras semanas</div>
+        <div class="pill"><span class="dot dot-teal"></span>Retorno gradual al trabajo de oficina entre 1 y 2 semanas</div>
+      </div>
+    </div>
+    <div class="card card-top-purple">
+      <div class="card-icon bg-purple">🩺</div>
+      <div class="card-title">Control de heridas y apósitos</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-purple"></span>Mantener la herida limpia y seca en todo momento</div>
+        <div class="pill"><span class="dot dot-purple"></span>No retirar apósitos sin indicación médica expresa</div>
+        <div class="pill"><span class="dot dot-purple"></span>Aplicar crema cicatrizante solo cuando el médico lo indique</div>
+        <div class="pill"><span class="dot dot-purple"></span>Asistir puntualmente a todas las curaciones programadas</div>
+        <div class="pill"><span class="dot dot-purple"></span>No manipular costras ni forzar el retiro de puntos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card card-top-coral">
+      <div class="card-icon bg-coral">💧</div>
+      <div class="card-title">Hidratación</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-coral"></span>Beber mínimo 2 litros de agua al día</div>
+        <div class="pill"><span class="dot dot-coral"></span>Evitar bebidas con cafeína en exceso</div>
+        <div class="pill"><span class="dot dot-coral"></span>Preferir jugos naturales sin azúcar añadida</div>
+        <div class="pill"><span class="dot dot-coral"></span>Agua de coco como alternativa electrolítica</div>
+      </div>
+    </div>
+    <div class="card card-top-amber">
+      <div class="card-icon bg-amber">🌡️</div>
+      <div class="card-title">Control de inflamación</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-amber"></span>Aplicar frío local solo con indicación médica</div>
+        <div class="pill"><span class="dot dot-amber"></span>Elevar la zona operada sobre el nivel del corazón</div>
+        <div class="pill"><span class="dot dot-amber"></span>No exponer la zona a calor directo ni saunas</div>
+        <div class="pill"><span class="dot dot-amber"></span>El edema puede persistir hasta 6 meses: es normal</div>
+      </div>
+    </div>
+    <div class="card card-top-pink">
+      <div class="card-icon bg-pink">💊</div>
+      <div class="card-title">Medicación prescrita</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-pink"></span>Tomar analgésicos estrictamente según receta</div>
+        <div class="pill"><span class="dot dot-pink"></span>No suspender antibióticos antes del tiempo indicado</div>
+        <div class="pill"><span class="dot dot-pink"></span>Evitar AINEs sin prescripción médica</div>
+        <div class="pill"><span class="dot dot-pink"></span>Informar al médico sobre cualquier otro medicamento</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: CRONOGRAMA -->
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <div class="section-label">Cronograma de recuperación</div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px;">
+    <div class="timeline">
+
+      <div class="tl-row">
+        <div class="tl-spine"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-phase">Fase aguda</div>
+          <div class="tl-period">Días 1 – 3</div>
+          <div class="tl-desc">Reposo absoluto, manejo del dolor con analgésicos prescritos. Vigilancia continua de signos de alarma. No mojarse la herida. Permanecer acompañado por un familiar o cuidador.</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-spine"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-phase">Fase de adaptación</div>
+          <div class="tl-period">Días 4 – 7</div>
+          <div class="tl-desc">Inicio de caminatas cortas. Primera curación en clínica. Se puede iniciar dieta blanda si el procedimiento lo requirió. Movilidad progresiva y controlada.</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-spine"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-phase">Consolidación</div>
+          <div class="tl-period">Semanas 2 – 4</div>
+          <div class="tl-desc">Retiro de puntos según tipo de procedimiento. Inicio de masajes cicatriciales si el cirujano lo indica. Retorno gradual a actividades cotidianas. Evitar exposición solar directa en cicatrices.</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-spine"><div class="tl-node"></div><div class="tl-connector"></div></div>
+        <div class="tl-body">
+          <div class="tl-phase">Maduración de cicatriz</div>
+          <div class="tl-period">Meses 2 – 6</div>
+          <div class="tl-desc">Uso obligatorio de protector solar SPF 50+ en cicatrices. Retorno gradual al ejercicio moderado. Continuidad con drenaje linfático si aplica. Control con cirujano para evaluación de resultados.</div>
+        </div>
+      </div>
+
+      <div class="tl-row">
+        <div class="tl-spine"><div class="tl-node" style="background:var(--teal-800);box-shadow:0 0 0 2px var(--teal-800);"></div></div>
+        <div class="tl-body" style="padding-bottom:0;">
+          <div class="tl-phase">Resultado definitivo</div>
+          <div class="tl-period">Mes 12</div>
+          <div class="tl-desc">Las cicatrices han madurado y aclarado. Resultado estabilizado. Se recomienda seguimiento anual con el cirujano tratante.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECCIÓN 3: ALIMENTACIÓN -->
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-label">Alimentación postoperatoria</div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="food-wrap" style="margin-bottom:14px;">
+    <div class="food-header">
+      <div class="food-header-cell food-header-ok">✓ Alimentos recomendados</div>
+      <div class="food-header-cell food-header-no">✕ Alimentos a evitar</div>
+    </div>
+    <div class="food-body">
+      <div class="food-col food-col-ok">
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Proteínas magras: pollo, pavo, pescado, huevo</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Vegetales y verduras cocidas o al vapor</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Frutas ricas en vitamina C: naranja, kiwi, papaya, pimiento</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Legumbres: lentejas, garbanzos, porotos, arvejas</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Lácteos bajos en grasa: yogur natural, queso fresco</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Frutos secos sin sal: nueces, almendras, semillas de calabaza</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Cereales integrales: avena, arroz integral, quínoa</span></div>
+        <div class="food-item"><span class="dot dot-teal" style="margin-top:6px;"></span><span class="food-item-text-ok">Aceite de oliva extra virgen como fuente de grasas saludables</span></div>
+      </div>
+      <div class="food-col food-col-no">
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Alimentos ultraprocesados y comida rápida</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Exceso de sal (favorece retención de líquidos e inflamación)</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Alcohol durante todo el período de recuperación</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Tabaco y cigarro electrónico (compromete cicatrización)</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Azúcar refinada y bebidas azucaradas</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Grasas saturadas: frituras, embutidos, mantequilla en exceso</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Anticoagulantes naturales en exceso sin indicación: ajo crudo, jengibre, cúrcuma</span></div>
+        <div class="food-item"><span class="dot dot-coral" style="margin-top:6px;"></span><span class="food-item-text-no">Picante y alimentos que produzcan gases e hinchazón</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-top-teal">
+    <div class="card-title">Nutrientes clave para la cicatrización</div>
+    <div class="nutrient-row">
+      <div class="nutrient">
+        <div class="nutrient-name">Vitamina C</div>
+        <div class="nutrient-desc">Esencial para la síntesis de colágeno. Fuentes: cítricos, pimiento rojo, kiwi, brócoli.</div>
+      </div>
+      <div class="nutrient">
+        <div class="nutrient-name">Proteínas completas</div>
+        <div class="nutrient-desc">Base de la reparación tisular. Fuentes: carnes magras, huevo entero, legumbres combinadas.</div>
+      </div>
+      <div class="nutrient">
+        <div class="nutrient-name">Zinc</div>
+        <div class="nutrient-desc">Acelera la regeneración celular. Fuentes: semillas de calabaza, mariscos, carne roja magra.</div>
+      </div>
+      <div class="nutrient">
+        <div class="nutrient-name">Vitamina A</div>
+        <div class="nutrient-desc">Apoya la regeneración del tejido. Fuentes: zanahoria, calabaza, espinaca, hígado.</div>
+      </div>
+      <div class="nutrient">
+        <div class="nutrient-name">Hierro</div>
+        <div class="nutrient-desc">Previene anemia postoperatoria. Fuentes: carnes rojas magras, legumbres, hojas verdes.</div>
+      </div>
+      <div class="nutrient">
+        <div class="nutrient-name">Omega 3</div>
+        <div class="nutrient-desc">Antiinflamatorio natural. Fuentes: salmón, sardinas, nueces. Consultar dosis con médico.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 4: SEÑALES DE ALARMA -->
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <div class="section-label">Señales de alarma</div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="alert alert-danger">
+    <div class="alert-icon">⚠️</div>
+    <div>
+      <div class="alert-title alert-title-danger">Consulte a su cirujano de inmediato si presenta alguno de los siguientes síntomas:</div>
+      <div class="alert-body alert-body-danger">
+        Fiebre superior a 38 °C · Sangrado activo o hematoma en aumento · Secreción purulenta o mal olor en la herida · Dolor intenso que no cede con analgésicos prescritos · Enrojecimiento excesivo, calor anormal o dureza alrededor de la herida · Dificultad para respirar o dolor en el pecho · Piel fría, pálida o amoratada en la zona operada · Pérdida de sensibilidad o adormecimiento prolongado
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-success">
+    <div class="alert-icon">✅</div>
+    <div>
+      <div class="alert-title alert-title-success">Síntomas normales en el postoperatorio</div>
+      <div class="alert-body alert-body-success">
+        Edema (inflamación) que puede durar semanas · Moretones o equimosis que desaparecen gradualmente · Sensación de tensión o tirantez en la zona · Picazón leve durante la cicatrización · Cambios de sensibilidad temporales · Endurecimiento o fibrosis bajo la piel que mejora con el tiempo
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 5: CUIDADOS POR ZONA -->
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <div class="section-label">Cuidados según zona operada</div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="zone-grid">
+    <div class="card card-top-purple">
+      <div class="card-icon bg-purple">😌</div>
+      <div class="card-title">Cara y cuello</div>
+      <div style="font-size:11px; color:var(--purple-600); margin-bottom:8px;">Rinoplastia · Blefaroplastia · Lifting · Otoplastia</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-purple"></span>Dormir con cabeza elevada a 30–45° durante 2 semanas</div>
+        <div class="pill"><span class="dot dot-purple"></span>No usar maquillaje hasta que el médico lo autorice</div>
+        <div class="pill"><span class="dot dot-purple"></span>Protector solar SPF 50+ desde la tercera semana</div>
+        <div class="pill"><span class="dot dot-purple"></span>Evitar expresiones faciales exageradas los primeros días</div>
+        <div class="pill"><span class="dot dot-purple"></span>No usar lentes de aumento sobre la nariz (rinoplastia)</div>
+        <div class="pill"><span class="dot dot-purple"></span>Masticar alimentos blandos si es cirugía de mandíbula</div>
+      </div>
+    </div>
+
+    <div class="card card-top-pink">
+      <div class="card-icon bg-pink">🌸</div>
+      <div class="card-title">Mamas</div>
+      <div style="font-size:11px; color:var(--pink-600); margin-bottom:8px;">Mamoplastia · Mastopexia · Implantes · Reducción</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-pink"></span>Usar sostén postquirúrgico 24 horas durante 4 a 8 semanas</div>
+        <div class="pill"><span class="dot dot-pink"></span>No dormir boca abajo durante el primer mes</div>
+        <div class="pill"><span class="dot dot-pink"></span>Evitar movimientos de brazos sobre la cabeza</div>
+        <div class="pill"><span class="dot dot-pink"></span>No realizar ejercicio de pecho por al menos 6 semanas</div>
+        <div class="pill"><span class="dot dot-pink"></span>Asistir a controles para verificar posición de implantes</div>
+        <div class="pill"><span class="dot dot-pink"></span>No conducir durante la primera semana</div>
+      </div>
+    </div>
+
+    <div class="card card-top-teal">
+      <div class="card-icon bg-teal">💪</div>
+      <div class="card-title">Abdomen</div>
+      <div style="font-size:11px; color:var(--teal-600); margin-bottom:8px;">Abdominoplastia · Liposucción · Dermolipectomía</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-teal"></span>Usar faja de compresión según indicación del cirujano</div>
+        <div class="pill"><span class="dot dot-teal"></span>Caminar levemente encorvado los primeros días</div>
+        <div class="pill"><span class="dot dot-teal"></span>Iniciar drenaje linfático manual cuando el médico indique</div>
+        <div class="pill"><span class="dot dot-teal"></span>No realizar abdominales ni ejercicio de core por 3 meses</div>
+        <div class="pill"><span class="dot dot-teal"></span>Consumir fibra para evitar estreñimiento</div>
+        <div class="pill"><span class="dot dot-teal"></span>Vigilar los drenes si los hubiese</div>
+      </div>
+    </div>
+
+    <div class="card card-top-amber">
+      <div class="card-icon bg-amber">✨</div>
+      <div class="card-title">Glúteos y muslos</div>
+      <div style="font-size:11px; color:var(--amber-600); margin-bottom:8px;">Gluteoplastia · Liposucción · Lipotransferencia</div>
+      <div class="pill-list">
+        <div class="pill"><span class="dot dot-amber"></span>No sentarse directamente sobre glúteos por 6 a 8 semanas</div>
+        <div class="pill"><span class="dot dot-amber"></span>Usar almohada especial de descarga al sentarse</div>
+        <div class="pill"><span class="dot dot-amber"></span>Faja de compresión según indicación del cirujano</div>
+        <div class="pill"><span class="dot dot-amber"></span>Iniciar drenaje linfático desde la primera semana</div>
+        <div class="pill"><span class="dot dot-amber"></span>Dormir de lado o boca abajo en lipotransferencia glútea</div>
+        <div class="pill"><span class="dot dot-amber"></span>Evitar superficies duras y sillas sin cojín</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 6: BIENESTAR EMOCIONAL -->
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <div class="section-label">Bienestar emocional</div>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="card card-top-purple" style="margin-bottom:14px;">
+    <div class="grid-2" style="align-items:start;">
+      <div>
+        <div class="card-icon bg-purple">💚</div>
+        <div class="card-title">La recuperación también es emocional</div>
+        <div style="font-size:12px; color:var(--gray-600); line-height:1.7;">
+          Es completamente normal experimentar ansiedad, cambios de ánimo, frustración o impaciencia durante el postoperatorio. La inflamación inicial puede generar inseguridad sobre los resultados, pero recuerde que el aspecto definitivo se alcanza entre los 6 y 12 meses.
+        </div>
+      </div>
+      <div>
+        <div class="pill-list" style="margin-top:0;">
+          <div class="pill"><span class="dot dot-purple"></span>Mantenga comunicación abierta con su cirujano ante cualquier duda</div>
+          <div class="pill"><span class="dot dot-purple"></span>Apóyese en familiares o personas de confianza durante la recuperación</div>
+          <div class="pill"><span class="dot dot-purple"></span>Evite comparar su proceso con el de otras personas en redes sociales</div>
+          <div class="pill"><span class="dot dot-purple"></span>El descanso adecuado favorece tanto la cicatrización como el bienestar mental</div>
+          <div class="pill"><span class="dot dot-purple"></span>Si la ansiedad persiste, consulte con un profesional de salud mental</div>
+          <div class="pill"><span class="dot dot-purple"></span>Registre su progreso con fotografías para apreciar la evolución real</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-icon">📋</div>
+    <div>
+      <div class="footer-title">Aviso importante</div>
+      <div class="footer-text">Esta guía tiene carácter orientativo y educativo. Las indicaciones específicas entregadas por su cirujano o equipo médico tienen siempre prioridad sobre cualquier pauta general aquí descrita. Ante cualquier duda, signo de alarma o situación inusual durante su recuperación, comuníquese de inmediato con su centro médico. No automedicar ni modificar tratamientos sin supervisión profesional.</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
